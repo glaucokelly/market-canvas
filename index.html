@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pesquisa de Mercado — Turismo Religioso · Aparecida do Norte 2025</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green:  #1D9E75;
+  --blue:   #3B8BD4;
+  --amber:  #BA7517;
+  --orange: #D85A30;
+  --purple: #534AB7;
+  --red:    #A32D2D;
+  --teal:   #0891b2;
+  --indigo: #4f46e5;
+  --bg:     #f5f4f0;
+  --card:   #ffffff;
+  --border: #e5e5e0;
+  --text:   #111111;
+  --muted:  #6b6b6b;
+  --dark:   #1a3268;
+  --r:      12px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 16px;
+  padding-bottom: 72px;
+}
+
+/* ── HERO ─────────────────────────── */
+.hero {
+  background: var(--dark);
+}
+.hero-photo {
+  width: 100%;
+  height: clamp(200px, 45vw, 400px);
+  overflow: hidden;
+  display: block;
+}
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+.hero-content {
+  padding: 28px 20px 32px;
+  border-top: 3px solid var(--green);
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 14px;
+}
+.hero-eyebrow-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  flex-shrink: 0;
+}
+.hero h1 {
+  font-size: clamp(28px, 7vw, 52px);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.05;
+  letter-spacing: -.03em;
+  margin-bottom: 6px;
+}
+.hero-sub {
+  font-size: clamp(14px, 3vw, 16px);
+  color: rgba(255,255,255,.55);
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding-top: 22px;
+}
+@media (min-width: 480px) {
+  .hero-stats { grid-template-columns: repeat(4, 1fr); }
+}
+.hero-stat .n {
+  font-size: clamp(22px, 5vw, 30px);
+  font-weight: 900;
+  letter-spacing: -.02em;
+  color: #fff;
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.hero-stat .l {
+  font-size: 11px;
+  color: rgba(255,255,255,.45);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  line-height: 1.3;
+  display: block;
+}
+
+/* ── NAV TOP (desktop) ────────────── */
+.nav-top {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  overflow-x: auto;
+  scrollbar-width: none;
+  display: flex;
+}
+.nav-top::-webkit-scrollbar { display: none; }
+.tab-btn {
+  flex: 0 0 auto;
+  padding: 17px 22px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  transition: color .15s, border-color .15s;
+  letter-spacing: -.01em;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active {
+  color: var(--green);
+  border-bottom-color: var(--green);
+  font-weight: 700;
+}
+
+/* ── NAV BOTTOM (mobile) ─────────── */
+.nav-bottom {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 200;
+  background: #fff;
+  border-top: 1px solid var(--border);
+  height: 64px;
+}
+.nav-bottom-inner { display: flex; height: 100%; }
+.nb-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  gap: 3px;
+  color: var(--muted);
+  transition: color .15s;
+  padding: 0 4px;
+  -webkit-tap-highlight-color: transparent;
+}
+.nb-btn.active { color: var(--green); }
+.nb-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+.nb-btn span { font-size: 10px; font-weight: 600; letter-spacing: .02em; line-height: 1; }
+
+@media (max-width: 680px) {
+  .nav-top { display: none; }
+  .nav-bottom { display: flex; }
+}
+
+/* ── PANELS ──────────────────────── */
+.panel { display: none; }
+.panel.active { display: block; }
+.panel-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 28px 16px 44px;
+}
+
+/* ── TYPE ────────────────────────── */
+.overline {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 40px 0 16px;
+}
+.overline:first-child { margin-top: 0; }
+
+/* ── KPI GRID ────────────────────── */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+@media (min-width: 480px) { .kpi-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 768px) { .kpi-grid { grid-template-columns: repeat(4, 1fr); } }
+
+.kpi {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 20px 16px;
+  border-top: 3px solid currentColor;
+}
+.kpi.green  { color: var(--green); }
+.kpi.blue   { color: var(--blue); }
+.kpi.amber  { color: var(--amber); }
+.kpi.orange { color: var(--orange); }
+.kpi.purple { color: var(--purple); }
+.kpi.red    { color: var(--red); }
+
+.kpi-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.kpi-value {
+  font-size: clamp(30px, 7vw, 40px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -.03em;
+}
+.kpi-sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* ── BAR CHART ───────────────────── */
+.chart-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 24px 20px 16px;
+}
+.chart-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 22px;
+  gap: 8px;
+}
+.chart-head h3 { font-size: 15px; font-weight: 700; color: var(--text); }
+.chart-head p  { font-size: 12px; color: var(--muted); }
+
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 160px;
+}
+@media (min-width: 480px) { .bar-chart { height: 200px; gap: 7px; } }
+
+.bar-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+  min-width: 0;
+}
+.bar-spacer { flex: 1; }
+.bar-val {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+@media (min-width: 480px) { .bar-val { font-size: 11px; } }
+.bar {
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  min-height: 4px;
+  transition: opacity .15s;
+}
+.bar:hover { opacity: .8; }
+.bar-label {
+  font-size: 9px;
+  color: var(--muted);
+  margin-top: 6px;
+  font-weight: 600;
+  text-align: center;
+}
+@media (min-width: 480px) { .bar-label { font-size: 11px; } }
+
+/* ── CARDS ───────────────────────── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 22px 20px;
+}
+.card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 600px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+
+/* ── PROGRESS ────────────────────── */
+.prog { margin-bottom: 14px; }
+.prog:last-child { margin-bottom: 0; }
+.prog-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 7px;
+  gap: 10px;
+}
+.prog-label .pv { font-weight: 700; white-space: nowrap; color: var(--text); }
+.prog-track {
+  background: var(--bg);
+  border-radius: 20px;
+  height: 9px;
+  overflow: hidden;
+}
+.prog-fill { height: 100%; border-radius: 20px; }
+
+/* ── LIST ────────────────────────── */
+.data-list { list-style: none; }
+.data-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.data-list li:last-child { border-bottom: none; }
+.data-list .dv { font-weight: 700; white-space: nowrap; color: var(--text); }
+
+/* ── TIMELINE ────────────────────── */
+.timeline { padding-left: 28px; position: relative; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px; top: 6px; bottom: 6px;
+  width: 2px;
+  background: var(--border);
+  border-radius: 2px;
+}
+.tl-item { position: relative; margin-bottom: 24px; }
+.tl-item:last-child { margin-bottom: 0; }
+.tl-dot {
+  position: absolute;
+  left: -23px; top: 4px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px currentColor;
+}
+.tl-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.tl-body  { font-size: 14px; color: var(--muted); line-height: 1.55; }
+
+/* ── SOLUTIONS ───────────────────── */
+.sol-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 640px) { .sol-grid { grid-template-columns: 1fr 1fr; } }
+
+.sol-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 22px 20px;
+  border-left: 5px solid var(--green);
+}
+.sol-card.c-blue   { border-left-color: var(--blue); }
+.sol-card.c-amber  { border-left-color: var(--amber); }
+.sol-card.c-orange { border-left-color: var(--orange); }
+.sol-card.c-purple { border-left-color: var(--purple); }
+.sol-card.c-red    { border-left-color: var(--red); }
+.sol-card.c-teal   { border-left-color: var(--teal); }
+.sol-card.c-indigo { border-left-color: var(--indigo); }
+
+.sol-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+  gap: 12px;
+}
+.sol-header h3 {
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.3;
+  flex: 1;
+  color: var(--text);
+}
+.sol-score-wrap { text-align: right; flex-shrink: 0; }
+.sol-score-num {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -.03em;
+}
+.sol-score-lbl { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+.sol-pills {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.sol-pill {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.overline-sm {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  margin: 16px 0 6px;
+  display: block;
+}
+.overline-sm.warn { color: var(--orange); }
+
+.sol-text { font-size: 14px; color: #3a3a3a; line-height: 1.6; }
+
+.sol-model {
+  background: var(--bg);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: #333;
+  line-height: 1.6;
+  border-left: 3px solid;
+}
+.sol-card         .sol-model { border-left-color: var(--green); }
+.sol-card.c-blue  .sol-model { border-left-color: var(--blue); }
+.sol-card.c-amber .sol-model { border-left-color: var(--amber); }
+.sol-card.c-orange .sol-model { border-left-color: var(--orange); }
+.sol-card.c-purple .sol-model { border-left-color: var(--purple); }
+.sol-card.c-red    .sol-model { border-left-color: var(--red); }
+.sol-card.c-teal   .sol-model { border-left-color: var(--teal); }
+.sol-card.c-indigo .sol-model { border-left-color: var(--indigo); }
+
+/* ── RANKING ─────────────────────── */
+.criteria-wrap {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+.criteria-chip {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 7px 15px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.criteria-chip b { color: var(--green); font-weight: 700; }
+
+.rank-list { display: flex; flex-direction: column; gap: 10px; }
+
+.rank-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 18px 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.rank-pos {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--muted);
+  width: 36px;
+  flex-shrink: 0;
+  text-align: center;
+  line-height: 1;
+}
+.rank-pos.p1 { color: #b8860b; }
+.rank-pos.p2 { color: #8a9ab0; }
+.rank-pos.p3 { color: var(--orange); }
+
+.rank-body { flex: 1; min-width: 0; }
+.rank-name {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 7px;
+  line-height: 1.3;
+}
+.rank-bar-track { height: 5px; background: var(--bg); border-radius: 10px; }
+.rank-bar-fill  { height: 100%; border-radius: 10px; }
+.rank-sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+.rank-score {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -.03em;
+  flex-shrink: 0;
+  text-align: right;
+  line-height: 1;
+}
+.rank-score-lbl { font-size: 11px; color: var(--muted); text-align: right; margin-top: 2px; }
+
+/* ── PHASE CARDS ─────────────────── */
+.phase-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 600px) { .phase-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.phase-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 22px 18px;
+  border-top: 4px solid;
+}
+.phase-card.p1 { border-top-color: var(--green); }
+.phase-card.p2 { border-top-color: var(--blue); }
+.phase-card.p3 { border-top-color: var(--purple); }
+
+.phase-tag {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 8px;
+}
+.p1 .phase-tag { color: var(--green); }
+.p2 .phase-tag { color: var(--blue); }
+.p3 .phase-tag { color: var(--purple); }
+.phase-title { font-size: 17px; font-weight: 800; margin-bottom: 8px; }
+.phase-body  { font-size: 14px; color: var(--muted); line-height: 1.55; }
+.phase-goal {
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* ── PITCH ───────────────────────── */
+.pitch-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 600px) { .pitch-grid { grid-template-columns: 1fr 1fr; } }
+
+.pitch-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 20px 18px;
+  border-left: 4px solid var(--green);
+}
+.pitch-who {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.pitch-q {
+  font-size: 15px;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.6;
+}
+.pitch-q::before { content: '\201C'; }
+.pitch-q::after  { content: '\201D'; }
+
+/* ── FOOTER ──────────────────────── */
+.site-footer {
+  background: var(--dark);
+  color: rgba(255,255,255,.45);
+  font-size: 13px;
+  padding: 36px 20px;
+  text-align: center;
+  line-height: 1.8;
+}
+.site-footer strong { color: rgba(255,255,255,.75); }
+
+/* ── Destaque circular verde ─────── */
+.hero-stat.highlight {
+  border: 3px solid var(--green);
+  border-radius: 100px;
+  padding: 10px 18px;
+  box-shadow: 0 0 0 5px rgba(29,158,117,.18), 0 0 18px rgba(29,158,117,.2);
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-photo">
+    <img src="SANTUARIOAPARECIDA-660x372.jpg" alt="Basílica Nacional de Nossa Senhora Aparecida">
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      Turismo Religioso &middot; Aparecida do Norte, SP
+    </div>
+    <h1>Pesquisa de Mercado</h1>
+    <p class="hero-sub">Mapeamento de oportunidades digitais no maior santuário mariano do Brasil &mdash; 9 milhões de visitantes/ano e mercado digital praticamente inexplorado.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="n">9,06M</span>
+        <span class="l">Visitantes / ano</span>
+      </div>
+      <div class="hero-stat highlight">
+        <span class="n">R$ 1,4B</span>
+        <span class="l">Movimentação econômica</span>
+      </div>
+      <div class="hero-stat">
+        <span class="n">+39,6%</span>
+        <span class="l">Crescimento em 2025</span>
+      </div>
+      <div class="hero-stat">
+        <span class="n">8</span>
+        <span class="l">Soluções mapeadas</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════
+     NAV DESKTOP
+══════════════════════════════════════ -->
+<nav class="nav-top" id="navTop">
+  <button class="tab-btn active" onclick="showTab('fluxo',this)">Fluxo de Romeiros</button>
+  <button class="tab-btn" onclick="showTab('infra',this)">Infraestrutura</button>
+  <button class="tab-btn" onclick="showTab('economia',this)">Economia</button>
+  <button class="tab-btn" onclick="showTab('solucoes',this)">Soluções Digitais</button>
+  <button class="tab-btn" onclick="showTab('ranking',this)">Ranking de Prioridade</button>
+</nav>
+
+<!-- NAV MOBILE (bottom) -->
+<nav class="nav-bottom" id="navBottom">
+  <div class="nav-bottom-inner">
+    <!-- Fluxo -->
+    <button class="nb-btn active" onclick="showTabMobile('fluxo',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+      </svg>
+      <span>Fluxo</span>
+    </button>
+    <!-- Infra -->
+    <button class="nb-btn" onclick="showTabMobile('infra',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+      </svg>
+      <span>Infra</span>
+    </button>
+    <!-- Economia -->
+    <button class="nb-btn" onclick="showTabMobile('economia',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+      </svg>
+      <span>Economia</span>
+    </button>
+    <!-- Soluções -->
+    <button class="nb-btn" onclick="showTabMobile('solucoes',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+      </svg>
+      <span>Soluções</span>
+    </button>
+    <!-- Ranking -->
+    <button class="nb-btn" onclick="showTabMobile('ranking',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 20 18 10"/><polyline points="12 20 12 4"/><polyline points="6 20 6 14"/>
+      </svg>
+      <span>Ranking</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     TAB 1 — FLUXO DE ROMEIROS
+══════════════════════════════════════ -->
+<div class="panel active" id="panel-fluxo">
+<div class="panel-inner">
+
+  <span class="overline">Crescimento anual de visitantes</span>
+  <div class="kpi-grid">
+    <div class="kpi green">
+      <div class="kpi-label">2022</div>
+      <div class="kpi-value">8,07M</div>
+      <div class="kpi-sub">visitantes registrados</div>
+    </div>
+    <div class="kpi green">
+      <div class="kpi-label">2023</div>
+      <div class="kpi-value">8,85M</div>
+      <div class="kpi-sub">+10% vs ano anterior</div>
+    </div>
+    <div class="kpi green">
+      <div class="kpi-label">2024</div>
+      <div class="kpi-value">9,06M</div>
+      <div class="kpi-sub">+2,4% vs ano anterior</div>
+    </div>
+    <div class="kpi amber">
+      <div class="kpi-label">2025 — projeção</div>
+      <div class="kpi-value">12M+</div>
+      <div class="kpi-sub">Ano Jubilar Católico</div>
+    </div>
+    <div class="kpi blue">
+      <div class="kpi-label">Crescimento reservas</div>
+      <div class="kpi-value">+39,6%</div>
+      <div class="kpi-sub">2025 vs 2024 (Hurb)</div>
+    </div>
+    <div class="kpi red">
+      <div class="kpi-label">Pico diário absoluto</div>
+      <div class="kpi-value">139,8k</div>
+      <div class="kpi-sub">12 de outubro de 2024</div>
+    </div>
+  </div>
+
+  <span class="overline">Fluxo mensal estimado — 2024 (mil visitantes)</span>
+  <div class="chart-card">
+    <div class="chart-head">
+      <h3>Visitantes por mês</h3>
+      <p class="chart-subtitle">em milhares</p>
+    </div>
+    <div class="bar-chart" id="monthlyChart"></div>
+  </div>
+
+  <span class="overline">Distribuição de visitas</span>
+  <div class="grid-2">
+    <div class="card">
+      <h4>Por dia da semana</h4>
+      <div class="prog">
+        <div class="prog-label"><span>Fins de semana, feriados e emendas</span><span class="pv">83%</span></div>
+        <div class="prog-track"><div class="prog-fill" style="width:83%;background:var(--green)"></div></div>
+      </div>
+      <div class="prog">
+        <div class="prog-label"><span>Dias úteis regulares</span><span class="pv">17%</span></div>
+        <div class="prog-track"><div class="prog-fill" style="width:17%;background:var(--blue)"></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <h4>Por semestre</h4>
+      <div class="prog">
+        <div class="prog-label"><span>2º semestre (jul–dez)</span><span class="pv">58%</span></div>
+        <div class="prog-track"><div class="prog-fill" style="width:58%;background:var(--amber)"></div></div>
+      </div>
+      <div class="prog">
+        <div class="prog-label"><span>1º semestre (jan–jun)</span><span class="pv">42%</span></div>
+        <div class="prog-track"><div class="prog-fill" style="width:42%;background:var(--orange)"></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <h4>Concentração no 4º trimestre</h4>
+      <div class="prog">
+        <div class="prog-label"><span>Out–Dez (Padroeira + Natal)</span><span class="pv">30%</span></div>
+        <div class="prog-track"><div class="prog-fill" style="width:30%;background:var(--red)"></div></div>
+      </div>
+      <p style="font-size:14px;color:var(--muted);margin-top:12px">30% de todo o fluxo anual se concentra em apenas 3 meses, puxado pela Festa da Padroeira, feriados nacionais e Natal.</p>
+    </div>
+    <div class="card">
+      <h4>Capacidade de pico</h4>
+      <div class="prog">
+        <div class="prog-label"><span>Fim de semana típico</span><span class="pv">~60k</span></div>
+        <div class="prog-track"><div class="prog-fill" style="width:40%;background:var(--purple)"></div></div>
+      </div>
+      <div class="prog">
+        <div class="prog-label"><span>Fim de semana de pico (outubro)</span><span class="pv">150k</span></div>
+        <div class="prog-track"><div class="prog-fill" style="width:100%;background:var(--red)"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <span class="overline">Principais eventos de 2024</span>
+  <div class="card" style="max-width:600px">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot" style="color:var(--blue)"></div>
+        <div class="tl-title">Semana Santa — 24 a 31 de março</div>
+        <div class="tl-body">179.000 pessoas em 8 dias consecutivos</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="color:var(--amber)"></div>
+        <div class="tl-title">Novena + Festa da Padroeira — 3 a 12 de outubro</div>
+        <div class="tl-body">320.000 devotos em 10 dias &mdash; pico: <strong>139.821 pessoas</strong> em 12/out</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="color:var(--green)"></div>
+        <div class="tl-title">Natal — 22 a 28 de dezembro</div>
+        <div class="tl-body">200.000 devotos em 7 dias</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     TAB 2 — INFRAESTRUTURA
+══════════════════════════════════════ -->
+<div class="panel" id="panel-infra">
+<div class="panel-inner">
+
+  <span class="overline">Números da cidade</span>
+  <div class="kpi-grid">
+    <div class="kpi blue">
+      <div class="kpi-label">Hospedagens listadas</div>
+      <div class="kpi-value">663</div>
+      <div class="kpi-sub">Booking + Trivago</div>
+    </div>
+    <div class="kpi green">
+      <div class="kpi-label">Capacidade de leitos</div>
+      <div class="kpi-value">~70k</div>
+      <div class="kpi-sub">hotéis, pousadas e casas</div>
+    </div>
+    <div class="kpi amber">
+      <div class="kpi-label">Restaurantes</div>
+      <div class="kpi-value">500+</div>
+      <div class="kpi-sub">estabelecimentos</div>
+    </div>
+    <div class="kpi orange">
+      <div class="kpi-label">Lojas no Santuário</div>
+      <div class="kpi-value">300+</div>
+      <div class="kpi-sub">shopping interno</div>
+    </div>
+    <div class="kpi purple">
+      <div class="kpi-label">Funcionários diretos</div>
+      <div class="kpi-value">2.600</div>
+      <div class="kpi-sub">sobe a 3.000 nos picos</div>
+    </div>
+    <div class="kpi red">
+      <div class="kpi-label">População fixa</div>
+      <div class="kpi-value">~36k</div>
+      <div class="kpi-sub">habitantes permanentes</div>
+    </div>
+  </div>
+
+  <span class="overline">Santuário Nacional</span>
+  <div class="grid-2">
+    <div class="card">
+      <h4>Dimensões e capacidade</h4>
+      <ul class="data-list">
+        <li><span>Área construída</span><span class="dv">143.000 m²</span></li>
+        <li><span>Capacidade por celebração</span><span class="dv">35–70k pessoas</span></li>
+        <li><span>Sala das Promessas</span><span class="dv">~19.000 obj/mês</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Comparação global</h4>
+      <div class="prog">
+        <div class="prog-label"><span>Aparecida do Norte</span><span class="pv">9,06M/ano</span></div>
+        <div class="prog-track"><div class="prog-fill" style="width:100%;background:var(--green)"></div></div>
+      </div>
+      <div class="prog">
+        <div class="prog-label"><span>Torre Eiffel (Paris)</span><span class="pv">8M/ano</span></div>
+        <div class="prog-track"><div class="prog-fill" style="width:88%;background:var(--blue)"></div></div>
+      </div>
+      <div class="prog">
+        <div class="prog-label"><span>Vaticano (Roma)</span><span class="pv">5M/ano</span></div>
+        <div class="prog-track"><div class="prog-fill" style="width:55%;background:var(--muted)"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <span class="overline">Faixas de preço — hospedagem (quarto duplo)</span>
+  <div class="card" style="max-width:680px">
+    <div class="prog">
+      <div class="prog-label"><span><strong>Econômico</strong> &mdash; Pousada Rabake, Pousada Jovimar</span><span class="pv">R$ 100–150</span></div>
+      <div class="prog-track"><div class="prog-fill" style="width:23%;background:var(--green)"></div></div>
+    </div>
+    <div class="prog">
+      <div class="prog-label"><span><strong>Intermediário</strong> &mdash; Hotel Maria da Fé, Britto Hotel</span><span class="pv">R$ 150–300</span></div>
+      <div class="prog-track"><div class="prog-fill" style="width:46%;background:var(--blue)"></div></div>
+    </div>
+    <div class="prog">
+      <div class="prog-label"><span><strong>Superior</strong> &mdash; Hotel Peregrinos, Santuário Palace</span><span class="pv">R$ 300–500</span></div>
+      <div class="prog-track"><div class="prog-fill" style="width:76%;background:var(--amber)"></div></div>
+    </div>
+    <div class="prog">
+      <div class="prog-label"><span><strong>Luxo</strong> &mdash; Hotel Rainha do Brasil, Hotel Santo Graal</span><span class="pv">R$ 500–655+</span></div>
+      <div class="prog-track"><div class="prog-fill" style="width:100%;background:var(--orange)"></div></div>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:14px;padding-top:14px;border-top:1px solid var(--border)">
+      Diária média: <strong style="color:var(--text)">R$ 230</strong> &mdash; quarto duplo
+    </p>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     TAB 3 — ECONOMIA
+══════════════════════════════════════ -->
+<div class="panel" id="panel-economia">
+<div class="panel-inner">
+
+  <span class="overline">Indicadores econômicos</span>
+  <div class="kpi-grid">
+    <div class="kpi green">
+      <div class="kpi-label">Dependência do turismo</div>
+      <div class="kpi-value">~80%</div>
+      <div class="kpi-sub">da economia local</div>
+    </div>
+    <div class="kpi amber">
+      <div class="kpi-label">Movimentação estimada</div>
+      <div class="kpi-value">R$ 1,4B</div>
+      <div class="kpi-sub">base 2014 — hoje muito maior</div>
+    </div>
+    <div class="kpi blue">
+      <div class="kpi-label">Crescimento 2025</div>
+      <div class="kpi-value">+39,6%</div>
+      <div class="kpi-sub">reservas vs 2024 (Hurb)</div>
+    </div>
+    <div class="kpi red">
+      <div class="kpi-label">Desemprego na pandemia</div>
+      <div class="kpi-value">70%</div>
+      <div class="kpi-sub">com o Santuário fechado</div>
+    </div>
+    <div class="kpi purple">
+      <div class="kpi-label">Turismo religioso BR</div>
+      <div class="kpi-value">3%+</div>
+      <div class="kpi-sub">do turismo nacional (~R$ 492B)</div>
+    </div>
+    <div class="kpi orange">
+      <div class="kpi-label">Novo resort Transamerica</div>
+      <div class="kpi-value">R$ 500M</div>
+      <div class="kpi-sub">700 aptos, obras em 2026</div>
+    </div>
+  </div>
+
+  <span class="overline">Composição da economia local</span>
+  <div class="card" style="max-width:580px">
+    <div class="prog">
+      <div class="prog-label"><span>Hospedagem</span><span class="pv">30%</span></div>
+      <div class="prog-track"><div class="prog-fill" style="width:30%;background:var(--blue)"></div></div>
+    </div>
+    <div class="prog">
+      <div class="prog-label"><span>Alimentação</span><span class="pv">25%</span></div>
+      <div class="prog-track"><div class="prog-fill" style="width:25%;background:var(--green)"></div></div>
+    </div>
+    <div class="prog">
+      <div class="prog-label"><span>Comércio religioso</span><span class="pv">25%</span></div>
+      <div class="prog-track"><div class="prog-fill" style="width:25%;background:var(--amber)"></div></div>
+    </div>
+    <div class="prog">
+      <div class="prog-label"><span>Transporte</span><span class="pv">10%</span></div>
+      <div class="prog-track"><div class="prog-fill" style="width:10%;background:var(--orange)"></div></div>
+    </div>
+    <div class="prog">
+      <div class="prog-label"><span>Artesanato / souvenirs</span><span class="pv">5%</span></div>
+      <div class="prog-track"><div class="prog-fill" style="width:5%;background:var(--purple)"></div></div>
+    </div>
+    <div class="prog">
+      <div class="prog-label"><span>Outros serviços</span><span class="pv">5%</span></div>
+      <div class="prog-track"><div class="prog-fill" style="width:5%;background:var(--muted)"></div></div>
+    </div>
+  </div>
+
+  <span class="overline">Comparação global de visitantes</span>
+  <div class="card" style="max-width:580px">
+    <div class="prog">
+      <div class="prog-label"><span><strong>Aparecida do Norte</strong></span><span class="pv">9,06M / ano</span></div>
+      <div class="prog-track"><div class="prog-fill" style="width:100%;background:var(--green)"></div></div>
+    </div>
+    <div class="prog">
+      <div class="prog-label"><span>Torre Eiffel &mdash; Paris</span><span class="pv">8M / ano</span></div>
+      <div class="prog-track"><div class="prog-fill" style="width:88%;background:var(--blue)"></div></div>
+    </div>
+    <div class="prog">
+      <div class="prog-label"><span>Vaticano &mdash; Roma</span><span class="pv">5M / ano</span></div>
+      <div class="prog-track"><div class="prog-fill" style="width:55%;background:var(--muted)"></div></div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     TAB 4 — SOLUÇÕES DIGITAIS
+══════════════════════════════════════ -->
+<div class="panel" id="panel-solucoes">
+<div class="panel-inner">
+
+  <span class="overline">8 soluções mapeadas para o mercado</span>
+  <div class="sol-grid">
+
+    <!-- 1 -->
+    <div class="sol-card">
+      <div class="sol-header">
+        <h3>Sistema de Reservas para Pousadas e Hotéis</h3>
+        <div class="sol-score-wrap">
+          <div class="sol-score-num" style="color:var(--green)">8.8</div>
+          <div class="sol-score-lbl">nota final</div>
+        </div>
+      </div>
+      <div class="sol-pills">
+        <div class="sol-pill">Aceit. 8.5</div>
+        <div class="sol-pill">ROI 9.2</div>
+        <div class="sol-pill">Urg. 8.8</div>
+      </div>
+      <span class="overline-sm">Por que tem alta aceitação</span>
+      <p class="sol-text">663+ propriedades gerenciam reservas só por WhatsApp. Occupancy 100% nos picos significa reservas perdidas por falta de controle. Booking cobra 15–20% de comissão — sistema próprio reduz essa dependência.</p>
+      <span class="overline-sm warn">Riscos</span>
+      <p class="sol-text">Proprietários mais velhos resistem a mudar a rotina do WhatsApp. Diferenciação de custo vs Booking é o principal argumento.</p>
+      <div class="sol-model">
+        <strong>Modelo:</strong> R$ 89–149/mês (SaaS). 50 clientes = R$ 4.500–7.500/mês recorrente.<br>
+        <strong>Mercado:</strong> 447–663 propriedades; captura inicial de 15–20% em 12 meses.
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="sol-card c-blue">
+      <div class="sol-header">
+        <h3>Marketplace de Artigos Religiosos</h3>
+        <div class="sol-score-wrap">
+          <div class="sol-score-num" style="color:var(--blue)">8.5</div>
+          <div class="sol-score-lbl">nota final</div>
+        </div>
+      </div>
+      <div class="sol-pills">
+        <div class="sol-pill">Aceit. 7.8</div>
+        <div class="sol-pill">ROI 9.5</div>
+        <div class="sol-pill">Urg. 9.0</div>
+      </div>
+      <span class="overline-sm">Por que o ROI é muito alto</span>
+      <p class="sol-text">300+ lojas no Santuário, quase nenhuma vende online — mercado 100% físico. 9M de fiéis/ano como clientes potenciais. Não existe marketplace especializado dominante neste nicho no Brasil.</p>
+      <span class="overline-sm warn">Riscos</span>
+      <p class="sol-text">Lojistas sem experiência com logística de e-commerce. Ticket médio baixo (R$ 20–80) exige alto volume de vendas.</p>
+      <div class="sol-model">
+        <strong>Modelo:</strong> Comissão 8–12% por venda + plano loja R$ 49/mês. Escalável para todo o Brasil.<br>
+        <strong>Mercado:</strong> 300+ lojistas; 9M+ clientes/ano; sem concorrente direto.
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="sol-card c-amber">
+      <div class="sol-header">
+        <h3>Cardápio Digital + Gestão de Restaurantes</h3>
+        <div class="sol-score-wrap">
+          <div class="sol-score-num" style="color:var(--amber)">8.3</div>
+          <div class="sol-score-lbl">nota final</div>
+        </div>
+      </div>
+      <div class="sol-pills">
+        <div class="sol-pill">Aceit. 8.0</div>
+        <div class="sol-pill">ROI 8.0</div>
+        <div class="sol-pill">Urg. 8.5</div>
+      </div>
+      <span class="overline-sm">Por que tem alta aceitação</span>
+      <p class="sol-text">500+ restaurantes com pico brutal nos fins de semana. Fila longa = cliente perdido. Gestão de fila por QR code reduz abandono e melhora rotatividade — dor visível toda semana.</p>
+      <span class="overline-sm warn">Riscos</span>
+      <p class="sol-text">Concorrência com iFood/Rappi. Ticket médio baixo exige demonstração clara de ROI para o dono do restaurante.</p>
+      <div class="sol-model">
+        <strong>Modelo:</strong> R$ 79–129/mês. Diferencial: delivery local sem taxa de plataforma nacional.<br>
+        <strong>Mercado:</strong> 500+ estabelecimentos; alta densidade em 3 ruas principais.
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="sol-card c-orange">
+      <div class="sol-header">
+        <h3>CRM + Automação WhatsApp</h3>
+        <div class="sol-score-wrap">
+          <div class="sol-score-num" style="color:var(--orange)">7.8</div>
+          <div class="sol-score-lbl">nota final</div>
+        </div>
+      </div>
+      <div class="sol-pills">
+        <div class="sol-pill">Aceit. 7.5</div>
+        <div class="sol-pill">ROI 8.2</div>
+        <div class="sol-pill">Urg. 7.8</div>
+      </div>
+      <span class="overline-sm">Por que faz sentido</span>
+      <p class="sol-text">Romeiro é cliente recorrente — volta nas mesmas datas todo ano. Hotéis já usam WhatsApp para reservas; o CRM organiza e automatiza. Mensagem antes da Festa da Padroeira gera receita direta. Custo de reativação: zero.</p>
+      <span class="overline-sm warn">Riscos</span>
+      <p class="sol-text">Educação sobre LGPD e coleta de dados. Concorrência com RD Station e HubSpot para clientes maiores.</p>
+      <div class="sol-model">
+        <strong>Modelo:</strong> R$ 99–199/mês. Ideal como add-on ao sistema de reservas (venda cruzada).<br>
+        <strong>Mercado:</strong> hotéis + lojas; alta sinergia com o produto de reservas.
+      </div>
+    </div>
+
+    <!-- 5 — NOVO -->
+    <div class="sol-card c-teal">
+      <div class="sol-header">
+        <h3>AdLocal — Anúncios Segmentados entre Negócios</h3>
+        <div class="sol-score-wrap">
+          <div class="sol-score-num" style="color:var(--teal)">7.7</div>
+          <div class="sol-score-lbl">nota final</div>
+        </div>
+      </div>
+      <div class="sol-pills">
+        <div class="sol-pill">Aceit. 7.0</div>
+        <div class="sol-pill">ROI 8.8</div>
+        <div class="sol-pill">Urg. 7.2</div>
+      </div>
+      <span class="overline-sm">O conceito</span>
+      <p class="sol-text">Cada cliente cadastrado em qualquer produto da plataforma recebe anúncios segmentados de fornecedores locais que fazem sentido para o seu negócio — sem spam, com relevância.</p>
+      <span class="overline-sm">Exemplos práticos</span>
+      <p class="sol-text">
+        Hotel → açougue, lavanderia, floricultura, manutenção elétrica.<br>
+        Restaurante → distribuidora de alimentos, bebidas, descartáveis.<br>
+        Loja de artigos religiosos → sacolas personalizadas, embalagens, fornecedores de imagens.<br>
+        Pousada → colchoaria, enxoval, serviços de limpeza.
+      </p>
+      <span class="overline-sm warn">Riscos</span>
+      <p class="sol-text">Depende do volume de clientes ativos para gerar valor para anunciantes. Monetiza melhor a partir da Fase 2.</p>
+      <div class="sol-model" style="border-left-color:var(--teal)">
+        <strong>Modelo:</strong> Anunciante paga R$ 150–400/mês para aparecer segmentado. Sem custo extra ao cliente da plataforma.<br>
+        <strong>Efeito:</strong> receita adicional sem atritar o produto principal.
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="sol-card c-purple">
+      <div class="sol-header">
+        <h3>App do Romeiro (PWA)</h3>
+        <div class="sol-score-wrap">
+          <div class="sol-score-num" style="color:var(--purple)">7.6</div>
+          <div class="sol-score-lbl">nota final</div>
+        </div>
+      </div>
+      <div class="sol-pills">
+        <div class="sol-pill">Aceit. 6.5</div>
+        <div class="sol-pill">ROI 8.8</div>
+        <div class="sol-pill">Urg. 7.5</div>
+      </div>
+      <span class="overline-sm">Por que alto ROI a longo prazo</span>
+      <p class="sol-text">9M+ usuários potenciais/ano. Plataforma de distribuição para todos os outros serviços — reservas, comércio, guias, AdLocal. Parceria com o Santuário confere credibilidade imediata. PWA é mais viável que app nativo no início.</p>
+      <span class="overline-sm warn">Riscos</span>
+      <p class="sol-text">Santuário pode querer desenvolver internamente. Usuário instala app só para a visita pontual — retenção é desafio.</p>
+      <div class="sol-model">
+        <strong>Modelo:</strong> Gratuito ao romeiro + anúncios AdLocal (R$ 200–500/mês por parceiro).<br>
+        <strong>Mercado:</strong> 9M usuários/ano; monetização B2B + B2C premium.
+      </div>
+    </div>
+
+    <!-- 7 — NOVO -->
+    <div class="sol-card c-indigo">
+      <div class="sol-header">
+        <h3>Marketplace de Empregos e Freelancers Locais</h3>
+        <div class="sol-score-wrap">
+          <div class="sol-score-num" style="color:var(--indigo)">7.5</div>
+          <div class="sol-score-lbl">nota final</div>
+        </div>
+      </div>
+      <div class="sol-pills">
+        <div class="sol-pill">Aceit. 7.8</div>
+        <div class="sol-pill">ROI 7.5</div>
+        <div class="sol-pill">Urg. 8.2</div>
+      </div>
+      <span class="overline-sm">O problema real</span>
+      <p class="sol-text">Cidade pequena de ~36k habitantes recebe picos de 150k visitantes. Um hotel com funcionário doente num domingo de outubro tem dificuldade real de achar um garçom ou cozinheiro de substituição em poucas horas. Não existe plataforma local para isso.</p>
+      <span class="overline-sm">Casos de uso</span>
+      <p class="sol-text">
+        Hotel precisa de garçom extra para evento de sábado.<br>
+        Restaurante perde cozinheiro na véspera da Festa da Padroeira.<br>
+        Lojista do Santuário busca vendedor temporário para outubro.<br>
+        Organizador de excursão precisa de guia de última hora.
+      </p>
+      <span class="overline-sm warn">Riscos</span>
+      <p class="sol-text">Mercado informal resistente à plataformização. Exige massa crítica de trabalhadores cadastrados antes de ter valor para os empregadores.</p>
+      <div class="sol-model" style="border-left-color:var(--indigo)">
+        <strong>Modelo:</strong> Assinatura mensal para estabelecimentos (R$ 49–99/mês) + destaque de perfil para candidatos (R$ 9,90/mês).<br>
+        <strong>Diferencial:</strong> foco em trabalho por turno e emergência — nicho sem concorrência direta em cidades pequenas.
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="sol-card c-red">
+      <div class="sol-header">
+        <h3>Plataforma de Agendamento de Transporte</h3>
+        <div class="sol-score-wrap">
+          <div class="sol-score-num" style="color:var(--red)">6.4</div>
+          <div class="sol-score-lbl">nota final</div>
+        </div>
+      </div>
+      <div class="sol-pills">
+        <div class="sol-pill">Aceit. 6.0</div>
+        <div class="sol-pill">ROI 6.8</div>
+        <div class="sol-pill">Urg. 6.5</div>
+      </div>
+      <span class="overline-sm">Potencial</span>
+      <p class="sol-text">Fluxo enorme de ônibus de excursão de todo o Brasil. Organizadores não têm plataforma — usam grupos de WhatsApp. Conecta motoristas de van locais com romeiros sem transporte.</p>
+      <span class="overline-sm warn">Riscos</span>
+      <p class="sol-text">Mercado pulverizado e informal. Fretadores resistem a plataformas por medo de taxação. Concorrência com 99/Uber para trajetos locais.</p>
+      <div class="sol-model">
+        <strong>Modelo:</strong> Comissão 5–8% por agendamento. Melhor como expansão na Fase 3.<br>
+        <strong>Estratégia:</strong> produto após consolidação das outras soluções.
+      </div>
+    </div>
+
+  </div>
+
+  <span class="overline">Argumentos de venda por perfil</span>
+  <div class="pitch-grid">
+    <div class="pitch-card">
+      <div class="pitch-who">Dono de pousada</div>
+      <p class="pitch-q">Você perde R$ 500+ toda semana sem sistema. Em 3 dias de outubro isso paga o ano inteiro do plano.</p>
+    </div>
+    <div class="pitch-card" style="border-left-color:var(--amber)">
+      <div class="pitch-who">Dono de restaurante</div>
+      <p class="pitch-q">Com gestão de fila digital, você atende 20% mais clientes nos dias de pico sem contratar ninguém.</p>
+    </div>
+    <div class="pitch-card" style="border-left-color:var(--blue)">
+      <div class="pitch-who">Lojista do Santuário</div>
+      <p class="pitch-q">9 milhões de fiéis passam aqui por ano, mas só compram quem está na sua frente. Com loja online você vende para todos.</p>
+    </div>
+    <div class="pitch-card" style="border-left-color:var(--purple)">
+      <div class="pitch-who">Gestores do Santuário</div>
+      <p class="pitch-q">Um app oficial com sua marca atinge 9M pessoas diretamente no celular — o ano todo, não só durante a visita.</p>
+    </div>
+    <div class="pitch-card" style="border-left-color:var(--teal)">
+      <div class="pitch-who">Fornecedor local (AdLocal)</div>
+      <p class="pitch-q">Seu açougue aparece para todos os hotéis da cidade que usam nossa plataforma — sem precisar bater de porta em porta.</p>
+    </div>
+    <div class="pitch-card" style="border-left-color:var(--indigo)">
+      <div class="pitch-who">Trabalhador local (Empregos)</div>
+      <p class="pitch-q">Cadastre seu perfil uma vez e receba chamados quando um hotel ou restaurante precisar de alguém no fim de semana.</p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     TAB 5 — RANKING
+══════════════════════════════════════ -->
+<div class="panel" id="panel-ranking">
+<div class="panel-inner">
+
+  <span class="overline">Critérios e pesos da avaliação</span>
+  <div class="criteria-wrap">
+    <div class="criteria-chip">Aceitação <b>25%</b></div>
+    <div class="criteria-chip">ROI para o vendedor <b>25%</b></div>
+    <div class="criteria-chip">Urgência <b>20%</b></div>
+    <div class="criteria-chip">Facilidade de execução <b>15%</b></div>
+    <div class="criteria-chip">Tamanho de mercado <b>15%</b></div>
+  </div>
+
+  <span class="overline">Ranking consolidado — 8 soluções</span>
+  <div class="rank-list">
+
+    <div class="rank-item">
+      <div class="rank-pos p1">1</div>
+      <div class="rank-body">
+        <div class="rank-name">Sistema de Reservas para Pousadas</div>
+        <div class="rank-bar-track"><div class="rank-bar-fill" style="width:88%;background:var(--green)"></div></div>
+        <div class="rank-sub">Aceit 8.5 &middot; ROI 9.2 &middot; Urg 8.8 &middot; Exec 8.5 &middot; Mkt 9.0</div>
+      </div>
+      <div>
+        <div class="rank-score" style="color:var(--green)">8.8</div>
+        <div class="rank-score-lbl">/10</div>
+      </div>
+    </div>
+
+    <div class="rank-item">
+      <div class="rank-pos p2">2</div>
+      <div class="rank-body">
+        <div class="rank-name">Marketplace de Artigos Religiosos</div>
+        <div class="rank-bar-track"><div class="rank-bar-fill" style="width:85%;background:var(--blue)"></div></div>
+        <div class="rank-sub">Aceit 7.8 &middot; ROI 9.5 &middot; Urg 9.0 &middot; Exec 6.5 &middot; Mkt 9.5</div>
+      </div>
+      <div>
+        <div class="rank-score" style="color:var(--blue)">8.5</div>
+        <div class="rank-score-lbl">/10</div>
+      </div>
+    </div>
+
+    <div class="rank-item">
+      <div class="rank-pos p3">3</div>
+      <div class="rank-body">
+        <div class="rank-name">Cardápio Digital + Gestão de Restaurantes</div>
+        <div class="rank-bar-track"><div class="rank-bar-fill" style="width:83%;background:var(--amber)"></div></div>
+        <div class="rank-sub">Aceit 8.0 &middot; ROI 8.0 &middot; Urg 8.5 &middot; Exec 9.0 &middot; Mkt 8.0</div>
+      </div>
+      <div>
+        <div class="rank-score" style="color:var(--amber)">8.3</div>
+        <div class="rank-score-lbl">/10</div>
+      </div>
+    </div>
+
+    <div class="rank-item">
+      <div class="rank-pos">4</div>
+      <div class="rank-body">
+        <div class="rank-name">CRM + Automação WhatsApp</div>
+        <div class="rank-bar-track"><div class="rank-bar-fill" style="width:78%;background:var(--orange)"></div></div>
+        <div class="rank-sub">Aceit 7.5 &middot; ROI 8.2 &middot; Urg 7.8 &middot; Exec 8.0 &middot; Mkt 7.5</div>
+      </div>
+      <div>
+        <div class="rank-score" style="color:var(--orange)">7.8</div>
+        <div class="rank-score-lbl">/10</div>
+      </div>
+    </div>
+
+    <div class="rank-item">
+      <div class="rank-pos">5</div>
+      <div class="rank-body">
+        <div class="rank-name">AdLocal — Anúncios Segmentados entre Negócios</div>
+        <div class="rank-bar-track"><div class="rank-bar-fill" style="width:77%;background:var(--teal)"></div></div>
+        <div class="rank-sub">Aceit 7.0 &middot; ROI 8.8 &middot; Urg 7.2 &middot; Exec 8.0 &middot; Mkt 8.0</div>
+      </div>
+      <div>
+        <div class="rank-score" style="color:var(--teal)">7.7</div>
+        <div class="rank-score-lbl">/10</div>
+      </div>
+    </div>
+
+    <div class="rank-item">
+      <div class="rank-pos">6</div>
+      <div class="rank-body">
+        <div class="rank-name">App do Romeiro (PWA)</div>
+        <div class="rank-bar-track"><div class="rank-bar-fill" style="width:76%;background:var(--purple)"></div></div>
+        <div class="rank-sub">Aceit 6.5 &middot; ROI 8.8 &middot; Urg 7.5 &middot; Exec 5.5 &middot; Mkt 9.5</div>
+      </div>
+      <div>
+        <div class="rank-score" style="color:var(--purple)">7.6</div>
+        <div class="rank-score-lbl">/10</div>
+      </div>
+    </div>
+
+    <div class="rank-item">
+      <div class="rank-pos">7</div>
+      <div class="rank-body">
+        <div class="rank-name">Marketplace de Empregos e Freelancers</div>
+        <div class="rank-bar-track"><div class="rank-bar-fill" style="width:75%;background:var(--indigo)"></div></div>
+        <div class="rank-sub">Aceit 7.8 &middot; ROI 7.5 &middot; Urg 8.2 &middot; Exec 7.5 &middot; Mkt 7.0</div>
+      </div>
+      <div>
+        <div class="rank-score" style="color:var(--indigo)">7.5</div>
+        <div class="rank-score-lbl">/10</div>
+      </div>
+    </div>
+
+    <div class="rank-item">
+      <div class="rank-pos">8</div>
+      <div class="rank-body">
+        <div class="rank-name">Plataforma de Agendamento de Transporte</div>
+        <div class="rank-bar-track"><div class="rank-bar-fill" style="width:64%;background:var(--red)"></div></div>
+        <div class="rank-sub">Aceit 6.0 &middot; ROI 6.8 &middot; Urg 6.5 &middot; Exec 5.5 &middot; Mkt 7.0</div>
+      </div>
+      <div>
+        <div class="rank-score" style="color:var(--red)">6.4</div>
+        <div class="rank-score-lbl">/10</div>
+      </div>
+    </div>
+
+  </div>
+
+  <span class="overline">Estratégia de entrada em 3 fases</span>
+  <div class="phase-grid">
+    <div class="phase-card p1">
+      <div class="phase-tag">Fase 1 &mdash; 0 a 6 meses</div>
+      <div class="phase-title">Receita Recorrente</div>
+      <div class="phase-body">Sistema de Reservas como produto-âncora. CRM + WhatsApp como add-on imediato com venda cruzada. AdLocal começa a operar com a base inicial de clientes.</div>
+      <div class="phase-goal">Meta: 30–50 clientes pagantes.</div>
+    </div>
+    <div class="phase-card p2">
+      <div class="phase-tag">Fase 2 &mdash; 6 a 12 meses</div>
+      <div class="phase-title">Expansão de Base</div>
+      <div class="phase-body">Cardápio Digital para restaurantes. Marketplace de Artigos Religiosos abre canal B2C nacional. Marketplace de Empregos capitaliza o volume de estabelecimentos já ativos.</div>
+      <div class="phase-goal">Meta: 150+ estabelecimentos, canal B2C ativo.</div>
+    </div>
+    <div class="phase-card p3">
+      <div class="phase-tag">Fase 3 &mdash; 12 a 24 meses</div>
+      <div class="phase-title">Escala e Plataforma</div>
+      <div class="phase-body">App do Romeiro agrega todos os serviços num único canal. Plataforma de Transporte entra com base consolidada. AdLocal escala com 200+ anunciantes B2B.</div>
+      <div class="phase-goal">Meta: produto único, maior potencial de escala.</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer class="site-footer">
+  <p><strong>Fontes:</strong> Santuário Nacional de Aparecida &bull; Hurb (dados de reservas 2025) &bull; Booking.com / Trivago &bull; IBGE &bull; Prefeitura de Aparecida &bull; Agência Nacional do Turismo (MTur)</p>
+  <p style="margin-top:6px">Aparecida Digital &bull; Pesquisa de Mercado &bull; Turismo Religioso &bull; 2025</p>
+</footer>
+
+<script>
+  // ── Scroll to content (below hero, nav fica no topo) ──
+  function scrollToContent() {
+    var hero = document.querySelector('.hero');
+    var top = hero ? hero.offsetHeight : 0;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+  }
+
+  // ── Tab switching ──────────────────────────────
+  function showTab(id, btn) {
+    var panels  = document.querySelectorAll('.panel');
+    var buttons = document.querySelectorAll('#navTop .tab-btn');
+    for (var i = 0; i < panels.length;  i++) panels[i].classList.remove('active');
+    for (var j = 0; j < buttons.length; j++) buttons[j].classList.remove('active');
+    document.getElementById('panel-' + id).classList.add('active');
+    btn.classList.add('active');
+    var mbtns = document.querySelectorAll('.nb-btn');
+    for (var k = 0; k < mbtns.length; k++) mbtns[k].classList.remove('active');
+    mbtns[tabIndex(id)].classList.add('active');
+    scrollToContent();
+  }
+
+  function showTabMobile(id, btn) {
+    var panels  = document.querySelectorAll('.panel');
+    var mbtns   = document.querySelectorAll('.nb-btn');
+    var dbtns   = document.querySelectorAll('#navTop .tab-btn');
+    for (var i = 0; i < panels.length; i++) panels[i].classList.remove('active');
+    for (var j = 0; j < mbtns.length;  j++) mbtns[j].classList.remove('active');
+    for (var k = 0; k < dbtns.length;  k++) dbtns[k].classList.remove('active');
+    document.getElementById('panel-' + id).classList.add('active');
+    btn.classList.add('active');
+    dbtns[tabIndex(id)].classList.add('active');
+    scrollToContent();
+  }
+
+  function tabIndex(id) {
+    var ids = ['fluxo', 'infra', 'economia', 'solucoes', 'ranking'];
+    for (var i = 0; i < ids.length; i++) {
+      if (ids[i] === id) return i;
+    }
+    return 0;
+  }
+
+  // ── Monthly bar chart ──────────────────────────
+  var months = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+  var values = [700, 550, 750, 850, 600, 580, 820, 660, 920, 1100, 700, 870];
+  var colors = [
+    '#3B8BD4','#3B8BD4','#1D9E75','#D85A30',
+    '#1D9E75','#1D9E75','#BA7517','#1D9E75',
+    '#534AB7','#A32D2D','#1D9E75','#534AB7'
+  ];
+
+  var maxVal = 0;
+  for (var m = 0; m < values.length; m++) {
+    if (values[m] > maxVal) maxVal = values[m];
+  }
+
+  var chart = document.getElementById('monthlyChart');
+  for (var n = 0; n < months.length; n++) {
+    var pct = Math.round((values[n] / maxVal) * 100);
+    var col = document.createElement('div');
+    col.className = 'bar-col';
+    col.innerHTML =
+      '<div class="bar-spacer"></div>' +
+      '<div class="bar-val">' + values[n] + 'k</div>' +
+      '<div class="bar" style="height:' + pct + '%;background:' + colors[n] + '"></div>' +
+      '<div class="bar-label">' + months[n] + '</div>';
+    chart.appendChild(col);
+  }
+</script>
+</body>
+</html>
