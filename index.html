@@ -678,8 +678,8 @@ body {
   <button class="tab-btn active" onclick="showTab('fluxo',this)">Fluxo de Romeiros</button>
   <button class="tab-btn" onclick="showTab('infra',this)">Infraestrutura</button>
   <button class="tab-btn" onclick="showTab('economia',this)">Economia</button>
-  <button class="tab-btn" onclick="showTab('solucoes',this)">Soluções Digitais</button>
-  <button class="tab-btn" onclick="showTab('ranking',this)">Ranking de Prioridade</button>
+  <!-- <button class="tab-btn" onclick="showTab('solucoes',this)">Soluções Digitais</button> -->
+  <!-- <button class="tab-btn" onclick="showTab('ranking',this)">Ranking de Prioridade</button> -->
 </nav>
 
 <!-- NAV MOBILE (bottom) -->
@@ -706,20 +706,22 @@ body {
       </svg>
       <span>Economia</span>
     </button>
-    <!-- Soluções -->
+    <!-- Soluções (desabilitado)
     <button class="nb-btn" onclick="showTabMobile('solucoes',this)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
       </svg>
       <span>Soluções</span>
     </button>
-    <!-- Ranking -->
+    -->
+    <!-- Ranking (desabilitado)
     <button class="nb-btn" onclick="showTabMobile('ranking',this)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="18 20 18 10"/><polyline points="12 20 12 4"/><polyline points="6 20 6 14"/>
       </svg>
       <span>Ranking</span>
     </button>
+    -->
   </div>
 </nav>
 
@@ -1022,8 +1024,9 @@ body {
 </div>
 
 <!-- ══════════════════════════════════════
-     TAB 4 — SOLUÇÕES DIGITAIS
+     TAB 4 — SOLUÇÕES DIGITAIS (desabilitado)
 ══════════════════════════════════════ -->
+<!--
 <div class="panel" id="panel-solucoes">
 <div class="panel-inner">
 
@@ -1268,10 +1271,12 @@ body {
 
 </div>
 </div>
+-->
 
 <!-- ══════════════════════════════════════
-     TAB 5 — RANKING
+     TAB 5 — RANKING (desabilitado)
 ══════════════════════════════════════ -->
+<!--
 <div class="panel" id="panel-ranking">
 <div class="panel-inner">
 
@@ -1417,6 +1422,7 @@ body {
 
 </div>
 </div>
+-->
 
 <!-- ══════════════════════════════════════
      FOOTER
@@ -1463,7 +1469,7 @@ body {
   }
 
   function tabIndex(id) {
-    var ids = ['fluxo', 'infra', 'economia', 'solucoes', 'ranking'];
+    var ids = ['fluxo', 'infra', 'economia'];
     for (var i = 0; i < ids.length; i++) {
       if (ids[i] === id) return i;
     }
